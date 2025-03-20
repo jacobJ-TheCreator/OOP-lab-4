@@ -1,10 +1,10 @@
 package exercise2;
 
 public class MyDList<E> {
-    private MyNode<E> head;  
-    private MyNode<E> tail;  
-    private int size;   
-    
+    private MyNode<E> head;
+    private MyNode<E> tail;
+    private int size;
+
     public MyDList() {
         this.head = null;
         this.tail = null;
@@ -20,9 +20,9 @@ public class MyDList<E> {
         if (isEmpty()) {
             head = tail = newNode;
         } else {
-            newNode.next = head;  
-            head.prev = newNode;  
-            head = newNode;       
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
         }
         size++;
     }
@@ -32,9 +32,9 @@ public class MyDList<E> {
         if (isEmpty()) {
             head = tail = newNode;
         } else {
-            newNode.prev = tail;  
-            tail.next = newNode;  
-            tail = newNode;       
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
         }
         size++;
     }
@@ -44,11 +44,11 @@ public class MyDList<E> {
             throw new IllegalStateException("List is empty");
         }
         E data = head.element;
-        head = head.next;  
-        if (head == null) {
-            tail = null;  
+        if (head == tail) {
+            head = tail = null;
         } else {
-            head.prev = null;  
+            head = head.next;
+            head.prev = null;
         }
         size--;
         return data;
@@ -59,11 +59,11 @@ public class MyDList<E> {
             throw new IllegalStateException("List is empty");
         }
         E data = tail.element;
-        tail = tail.prev;  
-        if (tail == null) {
-            head = null;  
+        if (head == tail) {
+            head = tail = null;
         } else {
-            tail.next = null;  
+            tail = tail.prev;
+            tail.next = null;
         }
         size--;
         return data;

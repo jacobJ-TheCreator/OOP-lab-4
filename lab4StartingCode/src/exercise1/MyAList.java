@@ -1,3 +1,6 @@
+//Author Jacob Jobse
+//Version 2025-03-20
+//OOP3 - Lab 4
 package exercise1;
 
 import java.util.ArrayList;
